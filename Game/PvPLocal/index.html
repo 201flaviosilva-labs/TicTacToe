@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../../CSS/reset.css">
 	<link rel="stylesheet" href="./Style/style.min.css">
-	<title>Tic Tac Toe</title>
+	<title>Tic Tac Toe Local</title>
 </head>
 
 <body>
@@ -16,21 +16,35 @@
 	</header>
 
 	<main>
-		<div class="board">
-			<button></button>
-			<button></button>
-			<button></button>
+		<div class="Game">
+			<div class="PlayerX">
+				<h3>Player: X</h3>
+				<p>Score: <span id="ScoreXSpan">0</span></p>
+			</div>
 
-			<button></button>
-			<button></button>
-			<button></button>
+			<div class="board">
+				<button></button>
+				<button></button>
+				<button></button>
 
-			<button></button>
-			<button></button>
-			<button></button>
-		</div>
-		<div>
-			<button>Reset</button>
+				<button></button>
+				<button></button>
+				<button></button>
+
+				<button></button>
+				<button></button>
+				<button></button>
+			</div>
+
+			<div class="PlayerO">
+				<h3>Player: O</h3>
+				<p>Score: <span id="ScoreOSpan">0</span></p>
+			</div>
+
+			<div class="ControlBtn">
+				<button id="Reset">Reset</button>
+				<button id="NewBoard">New Boar</button>
+			</div>
 		</div>
 	</main>
 

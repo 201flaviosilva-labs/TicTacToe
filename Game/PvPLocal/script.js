@@ -1,33 +1,79 @@
 const boardBtn = document.querySelectorAll("body main div.board button");
+const ScoreXSpan = document.getElementById("ScoreXSpan");
+const ScoreOSpan = document.getElementById("ScoreOSpan");
 
-let numerado = [
+let board = [
 	"0", "1", "2",
 	"3", "4", "5",
 	"6", "7", "8"];
 
-let board = [
-	"", "", "",
-	"", "", "",
-	"", "", ""];
-const win = ["012", "345", "789", "036", "147", "258", "048", "246"];
-let points = { X: 0, O: 0 };
-let playerMove = "X";
+const win = [
+	[0, 1, 2],
+	[3, 4, 5],
+	[6, 7, 8],
 
+	[0, 3, 6],
+	[1, 4, 7],
+	[2, 5, 8],
+
+	[0, 4, 8],
+	[2, 4, 6]
+];
+
+let symbols = ["X", "O"];
+let score = { X: 0, O: 0 };
+let playerMove = symbols[0];
+let gameOver = false;
+
+document.getElementById("Reset").addEventListener("click", () => {
+	score.X = 0;
+	score.O = 0;
+	main();
+});
+document.getElementById("NewBoard").addEventListener("click", main);
 window.onload = () => main();
 function main() {
-	for (let i = 0; i < boardBtn.length; i++)
-		boardBtn[i].addEventListener("click", () => move(i));
+	gameOver = false;
+	for (let i = 0; i < boardBtn.length; i++) {
+		board[i] = "";
+		boardBtn[i].innerHTML = "";
+		boardBtn[i].style.backgroundColor = "#252525";
+		boardBtn[i].disabled = false;
+		if (score.O == 0 && score.X == 0) boardBtn[i].addEventListener("click", () => move(i));
+	}
 }
 
 function move(i) {
-	if (!board[i]) {
-		boardBtn[i].innerHTML = playerMove;
-		if (playerMove == "X") playerMove = "O";
-		else playerMove = "X";
-		checkWin();
-	} else console.log("Ocupado");
+	console.log("beep");
+	if (!gameOver) {
+		if (!board[i]) {
+			boardBtn[i].innerHTML = playerMove;
+			boardBtn[i].disabled = true;
+			board[i] = playerMove;
+			if (playerMove == symbols[0]) {
+				boardBtn[i].style.backgroundColor = "red";
+				playerMove = symbols[1];
+			}
+			else {
+				boardBtn[i].style.backgroundColor = "blue";
+				playerMove = symbols[0];
+			}
+			checkWin();
+		} else alert("Cell Ocupated");
+	} else alert("Game Over!");
 }
 
 function checkWin() {
-	
+	for (let s of symbols) {
+		for (let i = 0; i < win.length; i++) {
+			if (board[win[i][0]] == s && board[win[i][1]] == s && board[win[i][2]] == s) {
+				boardBtn[win[i][0]].style.backgroundColor = "green";
+				boardBtn[win[i][1]].style.backgroundColor = "green";
+				boardBtn[win[i][2]].style.backgroundColor = "green";
+				gameOver = true;
+				if (s == symbols[0]) ScoreXSpan.innerHTML = ++score.X;
+				else ScoreXSpan.innerHTML = ++score.O;
+			}
+		}
+	}
 }

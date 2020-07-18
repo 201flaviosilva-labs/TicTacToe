@@ -17,14 +17,36 @@ body main {
   justify-content: center;
 }
 
+body main button {
+  color: black;
+}
+
 body main div.board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 10px 10px;
+  padding: 10px;
+  border: 1px solid white;
+  box-shadow: 0 0 20px white;
 }
 
 body main div.board button {
   width: 100px;
   height: 100px;
+  box-shadow: 0 0 5px white;
+  border: 1px solid black;
+  font-size: 50px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+body main div.board button:hover {
+  border: 2px solid blue;
+  transform: scale(1.1);
+}
+
+body main div.board button:active {
+  border: 2px solid lightblue;
+  transform: scale(0.975);
 }

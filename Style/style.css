@@ -20,12 +20,20 @@ body main {
 
 body main button {
   width: 66%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid white;
   background-color: black;
   padding: 10px 0;
   border-radius: 4px;
   transition: 0.5s;
   font-size: 18px;
+}
+
+body main button a {
+  width: 100%;
+  height: 100%;
 }
 
 body main button:hover {

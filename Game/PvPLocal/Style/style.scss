@@ -43,7 +43,7 @@ body {
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+          // justify-content: center;
         }
         &.board {
           grid-area: Board;
@@ -79,9 +79,24 @@ body {
           grid-area: ControlBtn;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: space-around;
           button {
-            padding: 10px;
+            padding: 6px 10px;
+            font-weight: bold;
+            font-size: 15px;
+            color: white;
+            background-color: black;
+            border: 1px solid white;
+            box-shadow: 4px 4px 4px white;
+            transition: 0.5s;
+            &:hover {
+              color: green;
+            }
+            &:active {
+              transform: translateY(3px);
+              transform: translateX(3px);
+              box-shadow: 1px 1px 1px white;
+            }
           }
         }
       }

@@ -49,7 +49,6 @@ body main div.Game div.PlayerX, body main div.Game div.PlayerO {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 body main div.Game div.board {
@@ -90,9 +89,26 @@ body main div.Game div.ControlBtn {
   grid-area: ControlBtn;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 body main div.Game div.ControlBtn button {
-  padding: 10px;
+  padding: 6px 10px;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  box-shadow: 4px 4px 4px white;
+  transition: 0.5s;
+}
+
+body main div.Game div.ControlBtn button:hover {
+  color: green;
+}
+
+body main div.Game div.ControlBtn button:active {
+  transform: translateY(3px);
+  transform: translateX(3px);
+  box-shadow: 1px 1px 1px white;
 }

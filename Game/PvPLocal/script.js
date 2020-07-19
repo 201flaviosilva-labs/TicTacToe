@@ -28,6 +28,8 @@ let gameOver = false;
 document.getElementById("Reset").addEventListener("click", () => {
 	score.X = 0;
 	score.O = 0;
+	ScoreXSpan.innerHTML = score.X;
+	ScoreXSpan.innerHTML = score.O;
 	main();
 });
 document.getElementById("NewBoard").addEventListener("click", main);
@@ -39,7 +41,8 @@ function main() {
 		boardBtn[i].innerHTML = "";
 		boardBtn[i].style.backgroundColor = "#252525";
 		boardBtn[i].disabled = false;
-		if (score.O == 0 && score.X == 0) boardBtn[i].addEventListener("click", () => move(i));
+		boardBtn[i].removeEventListener("click", () => move(i));
+		boardBtn[i].addEventListener("click", () => move(i));
 	}
 }
 

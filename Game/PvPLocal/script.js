@@ -25,6 +25,7 @@ let score = { X: 0, O: 0 };
 let playerMove = symbols[0];
 let gameOver = false;
 
+// Reset btns
 for (let i = 0; i < boardBtn.length; i++)  boardBtn[i].addEventListener("click", () => move(i));
 
 document.getElementById("Reset").addEventListener("click", () => {

@@ -25,13 +25,16 @@ let score = { X: 0, O: 0 };
 let playerMove = symbols[0];
 let gameOver = false;
 
+for (let i = 0; i < boardBtn.length; i++)  boardBtn[i].addEventListener("click", () => move(i));
+
 document.getElementById("Reset").addEventListener("click", () => {
 	score.X = 0;
 	score.O = 0;
 	ScoreXSpan.innerHTML = score.X;
-	ScoreXSpan.innerHTML = score.O;
+	ScoreOSpan.innerHTML = score.O;
 	main();
 });
+
 document.getElementById("NewBoard").addEventListener("click", main);
 window.onload = () => main();
 function main() {
@@ -41,8 +44,6 @@ function main() {
 		boardBtn[i].innerHTML = "";
 		boardBtn[i].style.backgroundColor = "#252525";
 		boardBtn[i].disabled = false;
-		boardBtn[i].removeEventListener("click", () => move(i));
-		boardBtn[i].addEventListener("click", () => move(i));
 	}
 }
 
@@ -74,8 +75,14 @@ function checkWin() {
 				boardBtn[win[i][1]].style.backgroundColor = "green";
 				boardBtn[win[i][2]].style.backgroundColor = "green";
 				gameOver = true;
-				if (s == symbols[0]) ScoreXSpan.innerHTML = ++score.X;
-				else ScoreXSpan.innerHTML = ++score.O;
+				if (s == symbols[0]) {
+					score.X++;
+					ScoreXSpan.innerHTML = score.X;
+				}
+				else {
+					score.O++;
+					ScoreOSpan.innerHTML = score.O;
+				}
 			}
 		}
 	}

@@ -14,6 +14,6 @@ Multiplayer Tic Tac Toe, play with your friend on different computers;
 ### Resources
 
 #### MinMax
-- [MinMax](https://alialaa.com/blog/tic-tac-toe-js);
-- [Tutorial](https://www.youtube.com/watch?v=JN6-OphA_VE)
+- [Alialaa](https://alialaa.com/blog/tic-tac-toe-js);
+- [Code Explained](https://www.youtube.com/watch?v=JN6-OphA_VE)
 

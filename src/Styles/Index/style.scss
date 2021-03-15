@@ -5,6 +5,11 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: black;
+  header {
+    h1 {
+      text-align: center;
+    }
+  }
   main {
     width: 40vw;
     height: 50vh;
@@ -47,6 +52,15 @@ body {
         font-weight: bolder;
         transform: scale(0.95);
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  body {
+    padding: 0;
+    main {
+      width: 90vw;
     }
   }
 }

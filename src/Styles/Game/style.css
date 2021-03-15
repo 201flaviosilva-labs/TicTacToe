@@ -112,3 +112,10 @@ body main div.Game div.ControlBtn button:active {
   transform: translateX(3px);
   box-shadow: 1px 1px 1px white;
 }
+
+@media only screen and (max-width: 700px) {
+  body main div.Game {
+    display: flex;
+    flex-direction: column;
+  }
+}

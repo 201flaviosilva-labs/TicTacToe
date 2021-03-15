@@ -103,3 +103,14 @@ body {
     }
   }
 }
+
+@media only screen and (max-width: 700px) {
+  body {
+    main {
+      div.Game {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}

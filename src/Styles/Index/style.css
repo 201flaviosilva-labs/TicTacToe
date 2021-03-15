@@ -7,6 +7,10 @@ body {
   background-color: black;
 }
 
+body header h1 {
+  text-align: center;
+}
+
 body main {
   width: 40vw;
   height: 50vh;
@@ -56,4 +60,13 @@ body main button:active {
 
 body main button:active a {
   color: green;
+}
+
+@media only screen and (max-width: 500px) {
+  body {
+    padding: 0;
+  }
+  body main {
+    width: 90vw;
+  }
 }

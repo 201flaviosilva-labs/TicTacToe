@@ -4,11 +4,58 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../Styles/Reset.css">
+	<link rel="stylesheet" href="../Styles/Game/style.min.css">
 	<title>Tic Tac Toe Online</title>
 </head>
 
 <body>
 
+	<header>
+		<h1>Tic Tac Toe</h1>
+		<h2>Player VS Computer</h2>
+	</header>
+
+	<main>
+		<div class="Game">
+			<div class="PlayerX">
+				<h3>Player: X</h3>
+				<p>Score: <span id="ScoreXSpan">0</span></p>
+			</div>
+
+			<div class="board">
+				<button></button>
+				<button></button>
+				<button></button>
+
+				<button></button>
+				<button></button>
+				<button></button>
+
+				<button></button>
+				<button></button>
+				<button></button>
+			</div>
+
+			<div class="PlayerO">
+				<h3>Computer: O</h3>
+				<p>Score: <span id="ScoreOSpan">0</span></p>
+			</div>
+
+			<div class="ControlBtn">
+				<button id="NewBoard">New Board</button>
+				<button id="Reset">Reset Game</button>
+			</div>
+		</div>
+	</main>
+
+	<footer><a href="http://mangito.github.io/">Mangito</a></footer>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.js"
+		integrity="sha512-2RDFHqfLZW8IhPRvQYmK9bTLfj/hddxGXQAred2wNZGkrKQkLGj8RCkXfRJPHlDerdHHIzTFaahq4s/P4V6Qig=="
+		crossorigin="anonymous"></script>
+
+	<script src="./script.js"></script>
 </body>
 
 </html>

@@ -4,10 +4,6 @@
   "description": "Multiplayer Tic Tac Toe",
   "homepage": "https://201flaviosilva-labs.github.io/TicTacToe/",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
   "author": "201flaviosilva",
   "license": "MIT"
 }

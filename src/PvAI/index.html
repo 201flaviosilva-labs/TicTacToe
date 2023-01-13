@@ -10,45 +10,47 @@
 </head>
 
 <body>
-	<header>
-		<h1>Tic Tac Toe</h1>
-		<h2>Player VS Computer</h2>
-	</header>
+	<div id="app">
+		<header>
+			<h1>Tic Tac Toe</h1>
+			<h2>Player VS Computer</h2>
+		</header>
 
-	<main>
-		<div class="Game">
-			<div class="PlayerX">
-				<h3>Player: X</h3>
-				<p>Score: <span id="ScoreXSpan">0</span></p>
+		<main>
+			<div class="Game">
+				<div class="PlayerX">
+					<h3>Player: X</h3>
+					<p>Score: <span id="ScoreXSpan">0</span></p>
+				</div>
+
+				<div class="board">
+					<button></button>
+					<button></button>
+					<button></button>
+
+					<button></button>
+					<button></button>
+					<button></button>
+
+					<button></button>
+					<button></button>
+					<button></button>
+				</div>
+
+				<div class="PlayerO">
+					<h3>Computer: O</h3>
+					<p>Score: <span id="ScoreOSpan">0</span></p>
+				</div>
+
+				<div class="ControlBtn">
+					<button id="NewBoard">New Board</button>
+					<button id="Reset">Reset Game</button>
+				</div>
 			</div>
+		</main>
 
-			<div class="board">
-				<button></button>
-				<button></button>
-				<button></button>
-
-				<button></button>
-				<button></button>
-				<button></button>
-
-				<button></button>
-				<button></button>
-				<button></button>
-			</div>
-
-			<div class="PlayerO">
-				<h3>Computer: O</h3>
-				<p>Score: <span id="ScoreOSpan">0</span></p>
-			</div>
-
-			<div class="ControlBtn">
-				<button id="NewBoard">New Board</button>
-				<button id="Reset">Reset Game</button>
-			</div>
-		</div>
-	</main>
-
-	<footer><a href="http://mangito.github.io/">Mangito</a></footer>
+		<footer><a href="http://201flaviosilva.github.io/">201flaviosilva</a></footer>
+	</div>
 
 	<script src="./script.js" type="module"></script>
 </body>

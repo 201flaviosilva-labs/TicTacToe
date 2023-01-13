@@ -1,4 +1,4 @@
-const boardBtn = document.querySelectorAll("body main div.board button");
+const boardBtn = document.querySelectorAll("button.position");
 const ScoreXSpan = document.getElementById("ScoreXSpan");
 const ScoreOSpan = document.getElementById("ScoreOSpan");
 

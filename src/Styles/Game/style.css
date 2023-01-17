@@ -1,7 +1,5 @@
 body div#app {
   padding: 10px 0;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +21,7 @@ body div#app main div.Game {
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr auto;
-  gap: 10px 10px;
+  gap: 10px;
   grid-template-areas: "PlayerX Board PlayerO" ". ControlBtn .";
 }
 
@@ -117,7 +115,7 @@ body div#app main div.Game div.ControlBtn button:active {
 }
 
 @media only screen and (max-width: 700px) {
-  body body div#app main div.Game {
+  body div#app main div.Game {
     display: flex;
     flex-direction: column;
   }

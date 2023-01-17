@@ -1,8 +1,36 @@
-const boardBtn = document.querySelectorAll("button.position");
-const ScoreXSpan = document.getElementById("ScoreXSpan");
-const ScoreOSpan = document.getElementById("ScoreOSpan");
+const positionButtons = document.querySelectorAll("button.position");
 
-let board = [
+class Player {
+	constructor(symbol, scoreUI, name = "Player " + symbol) {
+		this.symbol = symbol;
+		this.name = name;
+		this.score = 0;
+		this.scoreUI = scoreUI;
+	}
+
+	setScore(score) {
+		this.score = score;
+		this.scoreUI.innerHTML = this.score;
+	}
+
+	setName(name) {
+		this.name = name;
+	}
+}
+
+const COLORS = {
+	win: "green",
+	normal: "#252525",
+	X: "red",
+	O: "blue",
+}
+
+const players = [
+	new Player("X", document.getElementById("ScoreXSpan")),
+	new Player("O", document.getElementById("ScoreOSpan"))
+];
+
+const board = [
 	"0", "1", "2",
 	"3", "4", "5",
 	"6", "7", "8"
@@ -24,69 +52,66 @@ const win = [
 	[2, 4, 6]
 ];
 
-let symbols = ["X", "O"];
-let score = { X: 0, O: 0 };
-let playerMove = symbols[0];
 let gameOver = false;
+let moves = 0;
 
-// Reset btns
-for (let i = 0; i < boardBtn.length; i++)  boardBtn[i].addEventListener("click", () => move(i));
-
-document.getElementById("Reset").addEventListener("click", () => {
-	score.X = 0;
-	score.O = 0;
-	ScoreXSpan.innerHTML = score.X;
-	ScoreOSpan.innerHTML = score.O;
-	main();
-});
-
-document.getElementById("NewBoard").addEventListener("click", main);
-window.onload = () => main();
-function main() {
-	gameOver = false;
-	for (let i = 0; i < boardBtn.length; i++) {
-		board[i] = "";
-		boardBtn[i].innerHTML = "";
-		boardBtn[i].style.backgroundColor = "#252525";
-		boardBtn[i].disabled = false;
-	}
+window.onload = () => {
+	// Reset buttons
+	positionButtons.forEach((btn, index) => btn.addEventListener("click", () => move(index)));
+	start();
 }
 
-function move(i) {
-	if (!gameOver) {
-		if (!board[i]) {
-			boardBtn[i].innerHTML = playerMove;
-			boardBtn[i].disabled = true;
-			board[i] = playerMove;
-			if (playerMove == symbols[0]) {
-				boardBtn[i].style.backgroundColor = "red";
-				playerMove = symbols[1];
-			}
-			else {
-				boardBtn[i].style.backgroundColor = "blue";
-				playerMove = symbols[0];
-			}
-			checkWin();
-		} else alert("Cell Ocupated");
-	} else alert("Game Over!");
+document.getElementById("NewBoard").addEventListener("click", start);
+document.getElementById("Reset").addEventListener("click", () => {
+	players.forEach(player => player.setScore(0));
+	start();
+});
+
+function start() {
+	gameOver = false;
+
+	positionButtons.forEach(btn => {
+		btn.innerHTML = "";
+		btn.style.backgroundColor = COLORS.normal;
+		btn.disabled = false;
+	});
+
+	board.forEach((p, i) => board[i] = "");
+}
+
+function move(buttonIndex) {
+	if (gameOver) return alert("Game Over!");
+	if (board[buttonIndex]) return alert("Cell it's occupied");
+
+	const button = positionButtons[buttonIndex];
+	const playerPlaying = moves % 2 ? players[1].symbol : players[0].symbol;
+
+	button.innerHTML = playerPlaying;
+	button.disabled = true;
+	board[buttonIndex] = playerPlaying;
+
+	if (playerPlaying === players[0].symbol) button.style.backgroundColor = COLORS.X;
+	else button.style.backgroundColor = COLORS.O;
+
+	moves++;
+
+	checkWin();
 }
 
 function checkWin() {
-	for (let s of symbols) {
-		for (let i = 0; i < win.length; i++) {
-			if (board[win[i][0]] == s && board[win[i][1]] == s && board[win[i][2]] == s) {
-				boardBtn[win[i][0]].style.backgroundColor = "green";
-				boardBtn[win[i][1]].style.backgroundColor = "green";
-				boardBtn[win[i][2]].style.backgroundColor = "green";
+	for (let i = 0; i < players.length; i++) {
+		const player = players[i];
+		const { symbol } = player;
+
+		for (let j = 0; j < win.length; j++) {
+			const cells = [win[j][0], win[j][1], win[j][2]];
+
+			if (board[cells[0]] === symbol && board[cells[1]] === symbol && board[cells[2]] === symbol) {
+				cells.forEach(c => positionButtons[c].style.backgroundColor = COLORS.win);
 				gameOver = true;
-				if (s == symbols[0]) {
-					score.X++;
-					ScoreXSpan.innerHTML = score.X;
-				}
-				else {
-					score.O++;
-					ScoreOSpan.innerHTML = score.O;
-				}
+
+				player.setScore(player.score + 1);
+
 			}
 		}
 	}

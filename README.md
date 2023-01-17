@@ -1,18 +1,12 @@
 # Tic Tac Toe
 
-## Against the Computer AI (PvAI)
+## Against the Computer AI (P vs AI)
 
 Game with MiniMax algorithm, try to beat the computer;
 
-## Local Multiplayer (PvPLocal)
+## Local Multiplayer (P vs P Local)
 
 Play with your friend on the same computer;
-
-
-## Online Multiplayer (PvPOnline)
-
-Multiplayer Tic Tac Toe, play with your friend on different computers;
-
 
 ### Resources
 

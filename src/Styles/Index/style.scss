@@ -1,56 +1,68 @@
 body {
-  padding: 10px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background-color: black;
-  header {
-    h1 {
-      text-align: center;
-    }
-  }
-  main {
-    width: 40vw;
-    height: 50vh;
+  div#app {
+    padding: 10px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    border: 1px solid white;
-    box-shadow: 0 0 20px white;
-    button {
-      width: 66%;
+    justify-content: space-between;
+    background-color: black;
+
+    header {
+      h1 {
+        text-align: center;
+      }
+    }
+
+    main {
+      width: 40vw;
+      height: 50vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-evenly;
       border: 1px solid white;
-      background-color: black;
-      padding: 10px 0;
       border-radius: 4px;
-      transition: 0.5s;
-      font-size: 18px;
-      a {
-        width: 100%;
-        height: 100%;
-      }
-      &:hover {
+      box-shadow: 2px 2px 2px black, 2px -2px 2px black, -2px 2px 2px black,
+        -2px -2px 2px black, 0 0 5px white, 0 0 10px white, 0 0 20px white;
+
+      button {
+        width: 66%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid white;
+        background-color: black;
+        padding: 10px 0;
+        border-radius: 4px;
+        transition: 0.5s;
+        font-size: 18px;
+
         a {
-          color: red;
+          width: 100%;
+          height: 100%;
         }
-        border: 1px solid red;
-        background-color: white;
-        box-shadow: 0 0 20px red;
-        transform: scale(1.1);
-      }
-      &:active {
-        a {
-          color: green;
+
+        &:hover {
+          a {
+            color: red;
+          }
+
+          border: 1px solid red;
+          background-color: gray;
+          box-shadow: 0 0 20px red;
+          transform: scale(1.1);
         }
-        border: 1px solid green;
-        box-shadow: 0 0 20px green;
-        font-weight: bolder;
-        transform: scale(0.95);
+
+        &:active {
+          a {
+            color: green;
+          }
+
+          border: 1px solid green;
+          box-shadow: 0 0 20px green;
+          font-weight: bolder;
+          transform: scale(0.95);
+        }
       }
     }
   }
@@ -58,9 +70,11 @@ body {
 
 @media only screen and (max-width: 500px) {
   body {
-    padding: 0;
-    main {
-      width: 90vw;
+    div#app {
+      padding: 0;
+      main {
+        width: 90vw;
+      }
     }
   }
 }

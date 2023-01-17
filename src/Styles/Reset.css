@@ -9,11 +9,28 @@
 }
 
 html,
-body {
+body,
+#app {
   width: 100vw;
   height: 100vh;
   background-color: black;
   overflow-x: hidden;
+}
+
+footer {
+  text-align: center;
+}
+
+footer a {
+  color: aqua;
+  transition: 1s;
+}
+
+footer a:hover {
+  color: black;
+  text-shadow: 0 0 2px aqua, 0 0 4px aqua, 0 0 8px aqua, 0 0 10px aqua,
+    0 0 20px aqua;
+  transform: scale(1.1);
 }
 
 ul li {
